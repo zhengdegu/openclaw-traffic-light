@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "红绿灯 - 工作中",
+  "description": "当 agent 开始执行任务时，将红绿灯切换为红灯（工作中）",
+  "version": "1",
+  "when": {
+    "type": "preTaskExecution"
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "powershell -Command \"New-Item -ItemType Directory -Force -Path \\\"$env:USERPROFILE\\\\.openclaw\\\" | Out-Null; Set-Content -Path \\\"$env:USERPROFILE\\\\.openclaw\\\\traffic_light_state\\\" -Value 'red' -NoNewline\""
+  }
+}

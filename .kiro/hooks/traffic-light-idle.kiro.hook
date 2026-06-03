@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "红绿灯 - Agent 停止",
+  "description": "当 agent 执行结束时，将红绿灯切换为绿灯（空闲）",
+  "version": "1",
+  "when": {
+    "type": "agentStop"
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "powershell -Command \"New-Item -ItemType Directory -Force -Path \\\"$env:USERPROFILE\\\\.openclaw\\\" | Out-Null; Set-Content -Path \\\"$env:USERPROFILE\\\\.openclaw\\\\traffic_light_state\\\" -Value 'green' -NoNewline\""
+  }
+}

@@ -86,14 +86,15 @@ export default function App() {
   const [style, setStyle] = useState<Style>('triple')
 
   useEffect(() => {
-    // 检查是否在 Electron 环境中
     if (window.electronAPI) {
       window.electronAPI.getInitialState().then(({ state: s, theme: t, style: st }) => {
         setState(s)
         setTheme(t)
         setStyle(st)
       })
-      window.electronAPI.onStateChange(setState)
+      window.electronAPI.onStateChange((s) => {
+        setState(s)
+      })
       window.electronAPI.onThemeChange(setTheme)
       window.electronAPI.onStyleChange(setStyle)
     } else {

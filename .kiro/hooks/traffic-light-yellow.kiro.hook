@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "红绿灯 - 收到请求",
+  "description": "当用户发送消息时，将红绿灯切换为黄灯（收到请求，准备处理）",
+  "version": "1",
+  "when": {
+    "type": "promptSubmit"
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "powershell -Command \"New-Item -ItemType Directory -Force -Path \\\"$env:USERPROFILE\\\\.openclaw\\\" | Out-Null; Set-Content -Path \\\"$env:USERPROFILE\\\\.openclaw\\\\traffic_light_state\\\" -Value 'yellow' -NoNewline\""
+  }
+}
