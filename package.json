@@ -16,7 +16,7 @@
   },
   "build": {
     "appId": "com.openclaw.traffic-light",
-    "productName": "OpenClaw 红绿灯",
+    "productName": "OpenClaw Traffic Light",
     "copyright": "Copyright © 2026",
     "files": [
       "dist/**/*",
